@@ -1,0 +1,108 @@
+Initialize, stage, first commit on local and push to remote Repository
+
+
+    Initialize local Repository
+        git init
+
+    Add your files to the staging area
+        git add .
+
+    Commit the staged files
+        git commit -m "Initial commit"
+
+
+    Connects your local repo to the remote one on GitHub
+        git remote add origin <YOUR_REMOTE_URL>
+
+    (Optional but good practice) Renames your main branch to 'main'
+        git branch -M main
+
+    Pushes your 'main' branch to the remote 'origin' and sets it as the default
+        git push -u origin main
+
+
+
+Error handling on this part
+
+    If you add a license and/or a README file on the remote repository and 
+    it isn't on the local repository, run
+        git pull origin main --no-rebase --allow-unrelated-histories
+
+    If Your Editor Looks Like This (Vim):
+    You'll see text at the top, and a ~ on the empty lines below.
+    To save and quit:
+        1. Press the Esc key once.
+        2. Type :wq (which means write and quit).
+        3. Press Enter.
+
+    Once you do this, the merge will be complete. 
+    You will be returned to your regular command prompt, and 
+    you can then run the final command:
+        git push -u origin main
+
+
+Branches
+    
+    Creates new branch, changes you to it
+        git checkout -b <your-new-branch-name>
+
+
+    Set ups a tracking relationship bewteen your local branch and the new remote branch.
+    After you can run ' git push ' and ' git pull ' without specifying the branch name again
+        git add .
+        git commit -m ""
+        git push -u origin <your-new-branch-name>
+
+
+    Verifies your current branch (current branch will be marked with a *)
+        git branch
+
+
+    To switch to an existing branch
+        git checkout <branch-name>
+
+        or
+
+        git checkout <remote-branch-name>
+
+    ** Note on switching: 
+        Make sure you have saved all your work before switching! ' git add .; git commit -m "" '
+        If you are not ready to commit, stash your changes ' git stash '
+
+        When you return to the original branch (where you left), you can reapply your stashed changes
+        ' git stash pop '
+
+
+
+
+
+
+to merge branches
+
+
+push all the final changes to the separate branch (not main)
+    git add .
+    git commit -m "final changes to separate branch; etc."
+    git push
+
+
+change branches to merged into branch
+    git checkout main
+
+
+pull latest changes form your remote repository like GitHub
+    git pull origin main
+
+
+run the merge command
+    git merge <separate branch's name>
+
+
+push the merged branch
+    git push origin main
+
+
+
+To check for successful merge
+    git log --oneline --graph
+    q (to escape after)
