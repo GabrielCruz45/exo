@@ -4,9 +4,9 @@ from flask import Blueprint, render_template, abort, request, redirect, session,
 from flask_login import login_user, logout_user
 from jinja2.exceptions import TemplateNotFound
 
-from .forms import RegistrationForm, LoginForm
-from ..models import User, RoleEnum
-from ..extensions import db
+from app.auth.forms import RegistrationForm, LoginForm
+from app.models import User, RoleEnum
+from app.extensions import db
 
 
 
