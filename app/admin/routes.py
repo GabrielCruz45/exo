@@ -1,5 +1,5 @@
 # Route for the user approval dashboard
-from flask import Blueprint, render_template, abort, flash, redirect, url_for
+from flask import Blueprint, render_template, abort, flash, redirect, url_for, TemplateNotFound, abort
 from flask_login import login_required
 
 from app.decorators import admin_required
@@ -19,9 +19,14 @@ admin_bp = Blueprint(
 @login_required
 @admin_required
 def admin_dashboard():
-    # Inside this route, query the database for all users where is_approved is False. Pass this list of users to a new template.
-    unapproved_users = db.session.execute(db.select(User).where(User.is_approved == False)).scalars().all()
-    return render_template('admin/admin_dashboard.html', unapproved_users=unapproved_users)
+    try:
+        # Inside this route, query the database for all users where is_approved is False. Pass this list of users to a new template.
+        unapproved_users = db.session.execute(db.select(User).where(User.is_approved == False)).scalars().all()
+        return render_template('admin/admin_dashboard.html', unapproved_users=unapproved_users)
+    
+    except TemplateNotFound:
+        return abort(500)
+
 
 @admin_bp.route('/approve/<int:user_id>', methods=['POST'])
 @login_required
