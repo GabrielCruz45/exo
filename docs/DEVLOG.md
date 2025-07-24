@@ -20,3 +20,8 @@ July 23, 2025
     Session 1:
     Started with TASK_THREE.pdf step 4. Found out through LLM a new way to think about classes, especially ones that you import: 
     "A class is like a template for creating objects." Also, just learned to use '#' on .md as H1 'tags'. 😎
+
+    Completed exo/app/auth/routes.py with full logic for registration, login and logout, including errors (using flash()!). 
+    Initialized login_manager and wrote route to ensure protected routes and admin route(s). 
+    General improvements to the structure and learned a little bit more of the "why's" regarding it. 
+    Excited to continue working on this project and I am learning a LOT about application building!
