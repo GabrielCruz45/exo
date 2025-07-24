@@ -1,8 +1,8 @@
 # Contains the Application Factory (create_app)
 from flask import Flask
-from .models import User
+from app.models import User
 
-from .extensions import db, migrate, socketio, login_manager
+from app.extensions import db, migrate, socketio, login_manager
 
 def create_app():
     app = Flask(__name__)
