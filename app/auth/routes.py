@@ -1,7 +1,13 @@
 # Routes for /login, /register, /logout
 # This is where you'll write the logic to handle what happens when a user tries to register or log in.
-from flask import Blueprint, render_template, abort, request, redirect, session
+from flask import Blueprint, render_template, abort, request, redirect, session, url_for, flash
+from flask_login import login_user, logout_user
 from jinja2.exceptions import TemplateNotFound
+
+from .forms import RegistrationForm, LoginForm
+from ..models import User, RoleEnum
+from ..extensions import db
+
 
 
 auth_bp = Blueprint(
@@ -12,59 +18,82 @@ auth_bp = Blueprint(
 )
 
 
-# Create a /register route that accepts both GET and POST requests. If it's a POST
-# request, validate the form data, create a new User object, set its password using your
-# set
-# _password method, add it to the database, and redirect the user to the login page
-# with a success message.
+
 @auth_bp.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
-        try:
-            # validate the form data,
+    # get user input from form
+    form = RegistrationForm(request.form)
 
-            # create a new User object
+    # validate the form data,
+    if form.validate_on_submit(): # 'samey' as -> request.method == 'POST' and form.validate()
 
-            # set its password using your set_password method
+        # create a new User object
+        new_user = User(
+            username = form.username.data,
+            email = form.email.data,
+            role = RoleEnum.user
+        )
 
-            # add it to the database
+        # set its password using your set_password method
+        new_user.set_password(form.password.data)
 
-            # redirect the user to the login page
-            redirect('login.html') # check***********
-
-        except TemplateNotFound:
-            abort(500)
+        # add it to the database
+        db.session.add(new_user)
+        db.session.commit()
         
-    else:
-        try:
-            return render_template('register.html')
-        except:
-            return
+        login_user(new_user)
+        flash("Registration successful! Redirecting to dashboard.", 'success')
 
+        # redirect new, logged in user to the login page
+        return redirect(url_for('main.dashboard'))
 
-
-
-
-@auth_bp.route('/login')
-def login():
+    # else if 'GET' -> if form.validate_on_submit(): handles this too
     try:
-        return
-    except:
-        return
+        return render_template('register.html', form=form)
+    
+    except TemplateNotFound:
+        return abort(500)
 
+
+
+@auth_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    # get user input on login form
+    form = LoginForm(request.form)
+
+    if form.validate_on_submit():
+        # find the user by their username
+        user = User.query.filter_by(username=form.username.data).first()
+        
+        # first check if -> user exists and password matches
+        if user and user.check_password(form.password.data):
+
+            # check if user is approved by admin
+            if user.is_approved:
+                login_user(user)
+                return redirect(url_for('main.dashboard'))
+            
+            # error because approval
+            else:
+                flash('Still pending approval', 'warning')
+                return redirect(url_for('auth.login'))
+        
+        # error because username does not exist
+        else:
+            flash('Wrong username and/or password.', 'danger')
+            return redirect(url_for('auth.login'))
+
+    # else if 'GET'
+    try:
+        return render_template('login.html', form=form)
+    
+    except TemplateNotFound:
+        return abort(500)
 
 
 
 @auth_bp.route('/logout')
 def logout():
-    try:
-        return
-    except:
-        return
-
-
-
-
-
-
-
+    logout_user()
+    session.clear() # super defense
+    return redirect(url_for('main.homepage'))
