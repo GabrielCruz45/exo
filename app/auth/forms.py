@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm 
 from wtforms import StringField, PasswordField, BooleanField, \
     SubmitField, DataRequired, Email, EqualTo, ValidationError
-from ..models import User
+
+from app.models import User
+
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -30,4 +32,3 @@ class RegistrationForm(FlaskForm):
         emailQuery = User.query.filter_by(email=email.data).first()
         if emailQuery:
             raise ValidationError("That email is already taken, use another one.")
-
