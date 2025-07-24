@@ -2,14 +2,21 @@
 
 # Routes for dashboard, analysis sessions
 from flask import Blueprint, render_template, abort
+from flask_login import login_required, current_user
 from jinja2.exceptions import TemplateNotFound
 
-homepage_bp = Blueprint('homepage', __name__, template_folder='templates') # change to url_prefix='/main'
+main_bp = Blueprint('main', __name__, template_folder='templates') # change to url_prefix='/main'
 
-@homepage_bp.route('/')
+@main_bp.route('/')
 def homepage():
     try:
         return render_template('test/homepage.html')
     
     except TemplateNotFound:
         abort(500)
+
+
+@main_bp.route('/dashboard')
+@login_required # this works!!
+def dashboard():
+    return f"<h1>Welcome to your dashboard, {current_user.username}!</h1>"

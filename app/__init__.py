@@ -14,13 +14,17 @@ def create_app():
     migrate.init_app(app, db)
     login_manager.init_app(app)
 
+
+    # provides critical link between the user ID stored in the browser's session_cookie and the actual user object in your database
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
 
+
+
     # register blueprint
     with app.app_context():
-        from .main.__init__ import homepage_bp
-        app.register_blueprint(homepage_bp)
+        from .main.__init__ import main_bp
+        app.register_blueprint(main_bp)
 
     return app
