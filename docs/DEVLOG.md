@@ -25,3 +25,7 @@ July 23, 2025
     Initialized login_manager and wrote route to ensure protected routes and admin route(s). 
     General improvements to the structure and learned a little bit more of the "why's" regarding it. 
     Excited to continue working on this project and I am learning a LOT about application building!
+
+    Completed exo/app/admin/routes.py. Had fun writing SQLAlchemy ORM syntax.
+
+    Started with edition of templates/auth/login.html and templates/auth/register.html.
