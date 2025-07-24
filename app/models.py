@@ -16,8 +16,6 @@ class User(UserMixin, db.Model):
     password_hash: Mapped[str]
     
     role: Mapped[RoleEnum] = mapped_column(Enum(RoleEnum, native_enum=False)) # This tells SQLAlchemy not to use the database's specific ENUM type (which can be buggy or unsupported on some backends like SQLite) and instead create a standard VARCHAR column with a CHECK constraint. This approach works reliably across all database systems.
-    # some_user = User(role=RoleEnum.admin)
-    # another_user = User(role=RoleEnum.user)
 
     is_approved: Mapped[bool] = mapped_column(default=False)
 
