@@ -1,4 +1,6 @@
-June 18, 2025
+# EXO DEVLOG
+
+July 18, 2025
 
     Session 1:
     Started designing the project with an LLM as I currently need help on designing a complete application from start
@@ -7,8 +9,14 @@ June 18, 2025
 
     Started project with folder structure and empty files, including README.md, DEVLOG.md, STRUCTURE_EXPLANATION.md and INSTRUCTIONS.md. Feeling excited and confident on the path ahead. Currently fighting "scope creep" with the LLM.
 
-June 19, 2025
+July 19, 2025
 
     Session 1:
     Started prompting the LLM to write Task files, simulating real world, professional experience. 
     Added dependencies to project in addition to requirements.txt. Edited config.py, moving on to extensions.py. Became aware of The Twelve-Factor app 'ethos'(?) -> https://12factor.net/
+
+July 23, 2025
+
+    Session 1:
+    Started with TASK_THREE.pdf step 4. Found out through LLM a new way to think about classes, especially ones that you import: 
+    "A class is like a template for creating objects." Also, just learned to use '#' on .md as H1 'tags'. 😎

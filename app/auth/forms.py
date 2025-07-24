@@ -20,8 +20,8 @@ class RegistrationForm(FlaskForm):
     submit_button = SubmitField('Submit')
 
 
+    # query the database to check if username and email already in use
     def validate_username(self, username):
-        # query the database to check if username already in use
         userQuery = User.query.filter_by(username=username.data).first()
         if userQuery:
             raise ValidationError("That username is already taken, choose another one.")

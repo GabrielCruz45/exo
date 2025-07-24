@@ -1,11 +1,17 @@
+# this file is still in 'test' mode
+
+
+
 # Routes for dashboard, analysis sessions
-from flask import render_template, abort
-from .__init__ import homepage_bp
+from flask import Blueprint, render_template, abort
+from jinja2.exceptions import TemplateNotFound
+
+homepage_bp = Blueprint('homepage', __name__, template_folder='templates') # change to url_prefix='/main'
 
 @homepage_bp.route('/')
 def homepage():
-    # try:
-    print("klk")
-    return 'Hello, this is an Exoplanet Analyzer!'
-    # except:
-    #     abort(404, description="Practicing try ..except code block, and you've got an error! >.<")
+    try:
+        return render_template('test/homepage.html')
+    
+    except TemplateNotFound:
+        abort(500)
