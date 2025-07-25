@@ -1,1 +1,30 @@
-<!-- home page of flask application -->
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <title>Homepage</title>
+{% endblock head %}
+
+
+
+{% block body %}
+    {% block header %}
+        {{ super() }}
+        {% block pagetitle %} Homepage {% endblock pagetitle %}
+    {% endblock header%}
+
+
+
+    {% block main %}
+        {{ super() }}
+    {% endblock main %}
+
+
+
+    {% block footer %}
+        {{ super() }}
+
+    {% endblock footer %}
+
+
+{% endblock body %}

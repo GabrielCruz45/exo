@@ -9,4 +9,4 @@ def admin_required(f):
         if not (current_user.is_autheticated) or not (current_user.role == 'admin'):
             return abort(403)
         return f(*args, **kwargs)
-    return admin_required
+    return decorated_function

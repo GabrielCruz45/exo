@@ -1,6 +1,7 @@
 # Route for the user approval dashboard
-from flask import Blueprint, render_template, abort, flash, redirect, url_for, TemplateNotFound, abort
+from flask import Blueprint, render_template, abort, flash, redirect, url_for, abort
 from flask_login import login_required
+from jinja2 import TemplateNotFound
 
 from app.decorators import admin_required
 from app.models import User
@@ -10,7 +11,7 @@ from app.extensions import db
 admin_bp = Blueprint(
     'admin',
     __name__,
-    template_folder='templates',
+    # template_folder='templates',
     url_prefix='/admin'
 )
 

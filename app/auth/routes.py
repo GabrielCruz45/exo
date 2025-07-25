@@ -13,7 +13,7 @@ from app.extensions import db
 auth_bp = Blueprint(
     'auth', 
     __name__, 
-    template_folder='templates/auth', 
+    # template_folder='templates', 
     url_prefix='/auth'
 )
 
