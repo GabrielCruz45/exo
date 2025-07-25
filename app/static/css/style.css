@@ -1,0 +1,29 @@
+/* colors: F0F7EE C4D7F2 AFDEDC 153243 2E3532 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #090907;
+    color: mintcream;
+
+    height: 100vh;
+}
+
+header {
+    background-color: #153243;
+}
+
+nav ul li {
+   display: inline; 
+}
+
+.warning {
+    color: orange;
+}
+
+.danger {
+    color: orangered;
+}

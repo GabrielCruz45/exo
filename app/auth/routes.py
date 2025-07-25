@@ -41,6 +41,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         
+        # login user, send message
         login_user(new_user)
         flash("Registration successful! Redirecting to dashboard.", 'success')
 
@@ -95,5 +96,5 @@ def login():
 @auth_bp.route('/logout')
 def logout():
     logout_user()
-    session.clear() # super defense
+    session.clear() # mega ultra super duper defense
     return redirect(url_for('main.homepage'))
