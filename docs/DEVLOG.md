@@ -29,3 +29,9 @@ July 23, 2025
     Completed exo/app/admin/routes.py. Had fun writing SQLAlchemy ORM syntax.
 
     Started with edition of templates/auth/login.html and templates/auth/register.html.
+
+
+July 25, 2025
+
+    Session 1:
+    App runs! Edited fully base.html, still got progress to go. Need to add functionality to navbar depending user and which page you are on. Got some hex color ideas from coolors.com. Started with style.css file. Initialized flask-assets. Correctly defined routes.py on admin, auth and main folders. Need to check if admin_required decorator fully works. But hey, app runs.
