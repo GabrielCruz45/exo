@@ -33,13 +33,12 @@
                 <nav>
                     <li>
                         <ul><a href="/">Home</a></ul>
-                        <ul><a href="">Dashboard</a></ul>
-                        <ul><a href="">Analyzer</a></ul>
+                        <ul><a href="{{ url_for(main.dashboard) }}">Dashboard</a></ul>
                         {# if admin <ul><a href="">Approval</a></ul> #}
                     </li>
                 </nav>
             </header>
-        {% endblock header%}
+        {% endblock header %}
 
         {% block main %}
             <main>

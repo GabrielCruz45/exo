@@ -1,4 +1,4 @@
-{% extends '../base.html' %}
+{% extends 'base.html' %}
 
 
 
@@ -12,9 +12,7 @@
 {% block body %}
     {% block header %}
         {{ super() }}
-        {% block pagetitle %}
-            <h1>Register</h1>
-        {% endblock pagetitle %}
+        {% block pagetitle %} Register {% endblock pagetitle %}
     {% endblock header%}
 
 
@@ -31,7 +29,7 @@
     {% endblock main %}
 
 
-    
+
     {% block footer %}
         {{ super() }}
 

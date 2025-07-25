@@ -2,7 +2,7 @@
 from flask import Flask
 from app.models import User
 
-from app.extensions import db, migrate, socketio, login_manager
+from app.extensions import db, migrate, socketio, login_manager, assets
 
 def create_app():
     app = Flask(__name__)
@@ -13,6 +13,7 @@ def create_app():
     socketio.init_app(app)
     migrate.init_app(app, db)
     login_manager.init_app(app)
+    assets.init_app(app)
 
 
     # provides critical link between the user ID stored in the browser's session_cookie and the actual user object in your database
@@ -24,7 +25,12 @@ def create_app():
 
     # register blueprint
     with app.app_context():
-        from .main.__init__ import main_bp
+        from app.admin.routes import admin_bp
+        from app.auth.routes import auth_bp
+        from app.main.routes import main_bp
+        
+        app.register_blueprint(admin_bp)
+        app.register_blueprint(auth_bp)
         app.register_blueprint(main_bp)
 
     return app

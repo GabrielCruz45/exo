@@ -1,5 +1,5 @@
 import enum
-from .models import db
+from app.extensions import db
 from sqlalchemy import Enum
 from sqlalchemy.orm import Mapped, mapped_column
 from flask_login import UserMixin

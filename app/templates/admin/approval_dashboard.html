@@ -1,10 +1,10 @@
-{% extends '../base.html' %}
+{% extends 'base.html' %}
 
 
 
 {% block head %}
     {{ super() }}
-    <title>Login</title>
+    <title>Approval Dashboard</title>
 
 {% endblock head %}
 
@@ -14,11 +14,23 @@
 
     {% block header %}
         {{ super() }}
-        
+        {% block pagetitle %}
+            Approval Dashboard
+        {% endblock pagetitle%}
+
     {% endblock header %}
 
     {% block main %}
         {{ super() }}
+        <table class="pending-approval">
+            {% for username, email in pending_approval.items() %} <!-- Check how to bring user_id to this template -->
+                <tr>
+                    <td>{{ username }}</td>
+                    <td>{{ email }}</td>
+                    <td><a href="{{url_for('approve/{{ user_id }}')}}">Approve</a></td>
+                </tr>
+            {% endfor %}
+        </table>
 
     {% endblock main %}
 

@@ -5,12 +5,18 @@ from flask import Blueprint, render_template, abort
 from flask_login import login_required, current_user
 from jinja2.exceptions import TemplateNotFound
 
-main_bp = Blueprint('main', __name__, template_folder='templates') # change to url_prefix='/main'
+main_bp = Blueprint(
+    'main', 
+    __name__
+    # template_folder='templates',
+    # url_prefix='/main'
+)
+
 
 @main_bp.route('/')
 def homepage():
     try:
-        return render_template('test/homepage.html')
+        return render_template('main/homepage.html')
     
     except TemplateNotFound:
         abort(500)
