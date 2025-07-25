@@ -3,29 +3,40 @@
 
 
 {% block head %}
-
-{{ super() }}
-<title>Login</title>
-
+    {{ super() }}
+    <title>Login</title>
 {% endblock head %}
 
 
 
 {% block body %}
-    <header>
-        <h1>Login</h1>
-    </header>
+    {% block header %}
+        {{ super() }}
+        {% block pagetitle %}
+            <h1>Login</h1>
+        {% endblock pagetitle %}
+    {% endblock header%}
 
-    <main>
-        {% if error %}
-        <p class=error><strong>Error:</strong> {{ error }}
-        {% endif %}
+
+
+    {% block main %}
+        {{ super() }}
 
         <form action="/login" method="POST">
-        <input type="text" name="username" id="username" placeholder="Username">
-        <input type="text" name="password" id="password" placeholder="Password">
-        <input type="checkbox" name="remember_me" id="remember_me">
-        <input type="submit" value="submit">
+            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="text" name="password" id="password" placeholder="Password">
+            <input type="checkbox" name="remember_me" id="remember_me">
+            <input type="submit" value="submit">
         </form>
-    </main>
+    {% endblock main %}
+
+
+
+    {% block footer %}
+        {{ super() }}
+
+    {% endblock footer %}
+
+
+
 {% endblock body %}

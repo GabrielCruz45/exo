@@ -3,20 +3,39 @@
 
 
 {% block head %}
-
-{{ super() }}
-<title>Register</title>
-
+    {{ super() }}
+    <title>Register</title>
 {% endblock head %}
 
-<form action="/register" method="POST">
-    <input type="text" name="username" id="username" placeholder="Username">
-    <input type="text" name="email" id="email" placeholder="E-mail">
-    <input type="text" name="password" id="password" placeholder="Password">
-    <input type="text" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
-    <input type="submit" value="submit">
-</form>
+
 
 {% block body %}
+    {% block header %}
+        {{ super() }}
+        {% block pagetitle %}
+            <h1>Register</h1>
+        {% endblock pagetitle %}
+    {% endblock header%}
+
+
+
+    {% block main %}
+        {{ super() }}
+        <form action="/register" method="POST">
+            <input type="text" name="username" id="username" placeholder="Username">
+            <input type="text" name="email" id="email" placeholder="E-mail">
+            <input type="text" name="password" id="password" placeholder="Password">
+            <input type="text" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
+            <input type="submit" value="submit">
+        </form>
+    {% endblock main %}
+
+
+    
+    {% block footer %}
+        {{ super() }}
+
+    {% endblock footer %}
+
 
 {% endblock body %}

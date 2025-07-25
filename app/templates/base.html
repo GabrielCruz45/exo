@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +10,52 @@
     {% endassets %}
     {% endblock head %}
 </head>
+
 <body>
-    <!-- get flash messages with categories -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <ul class=flashes>
-            {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+    {% block body %} 
+        {% block header %}
+            <header>
+                <div class="flashes">
+                    <!-- get flash messages with categories -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul class=flashes>
+                            {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+                <div class="pagetitle"><h1>{% block pagetitle %} {% endblock pagetitle %}</h1></div>
+
+                <nav>
+                    <li>
+                        <ul><a href="/">Home</a></ul>
+                        <ul><a href="">Dashboard</a></ul>
+                        <ul><a href="">Analyzer</a></ul>
+                        {# if admin <ul><a href="">Approval</a></ul> #}
+                    </li>
+                </nav>
+            </header>
+        {% endblock header%}
+
+        {% block main %}
+            <main>
+                <div class="chat"></div>
+            </main>
+        {% endblock main %}
 
 
-    {% block body %} {% endblock body%}
+        {% block footer %}
+        <footer></footer>
+        {% endblock footer %}
+    {% endblock body %}
 
     
-    {% block script %} {% endblock script%}
+
+    {% block script %} {% endblock script %}
 </body>
+
 </html>
