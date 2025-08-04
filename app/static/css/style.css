@@ -79,7 +79,7 @@ a:visited {
 }
 
 
-
+/* main is a grid 3xn (3 columns x n rows) */
 
 main {
     display: grid;
@@ -101,7 +101,6 @@ main .firstRow-left {
 
 main .firstRow-center {
     grid-area: 1 / 2;
-    /* padding-bottom: 1rem; */
 
     font-size: larger;
 }
@@ -112,17 +111,12 @@ main .firstRow-right {
 
 main .secondRow-left {
     grid-area: 2 / 1;
-    /* border: 1px dashed orange; */
 }
 
 main .secondRow-center {
     grid-area: 2 / 2;
-    /* padding-bottom: 1rem; */
 }
 
 main .secondRow-right {
     grid-area: 2 / 3;
 }
-
-
-
