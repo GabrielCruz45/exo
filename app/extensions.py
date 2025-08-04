@@ -32,4 +32,11 @@ main_styles = Bundle(
   output='gen/packed.css'
 )
 
+forms_styles = Bundle(
+    'css/forms.css',
+    filters='cssmin',
+    output='gen/forms.css'
+)
+
 assets.register('main_styles', main_styles)
+assets.register('forms_styles', forms_styles)
