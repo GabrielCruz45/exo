@@ -50,7 +50,7 @@ def register():
 
     # else if 'GET' -> if form.validate_on_submit(): handles this too
     try:
-        return render_template('register.html', form=form)
+        return render_template('auth/register.html', form=form)
     
     except TemplateNotFound:
         return abort(500)
@@ -86,7 +86,7 @@ def login():
 
     # else if 'GET'
     try:
-        return render_template('login.html', form=form)
+        return render_template('auth/login.html', form=form)
     
     except TemplateNotFound:
         return abort(500)

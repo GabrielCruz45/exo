@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 
 
@@ -10,21 +10,25 @@
 
 
 {% block body %}
-    {% block header %}
-        {{ super() }}
-        {% block pagetitle %} Login {% endblock pagetitle %}
-    {% endblock header%}
-
+    {% block pagetitle %} Login {% endblock pagetitle %}
 
 
     {% block main %}
-        {{ super() }}
-
-        <form action="/login" method="POST">
-            <input type="text" name="username" id="username" placeholder="Username">
-            <input type="text" name="password" id="password" placeholder="Password">
-            <input type="checkbox" name="remember_me" id="remember_me">
-            <input type="submit" value="submit">
+        <p class="firstRow-left"></p>
+        <p class="firstRow-center">Please log in</p>
+        <p class="firstRow-right"></p>
+        <form class="secondRow-center grid-item" action="/login" method="POST">
+            <div class="username-and-password">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="text" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="remember grid-item">
+                <label for="remember_me-checkbox" id="remember_me-label">Remember Me</label>
+                <input type="checkbox" name="remember_me" id="remember_me-checkbox">
+            </div>
+            <div class="login-submit grid-item">
+                <input type="submit" value="submit">
+            </div>
         </form>
     {% endblock main %}
 

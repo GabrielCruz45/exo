@@ -13,13 +13,13 @@
     {% block header %}
         {{ super() }}
         {% block pagetitle %} Register {% endblock pagetitle %}
-    {% endblock header%}
-
-
+        {% endblock header%}
+        
+        <hr>
+        
 
     {% block main %}
-        {{ super() }}
-        <form action="/register" method="POST">
+        <form action="/register" method="POST" class="register-form">
             <input type="text" name="username" id="username" placeholder="Username">
             <input type="text" name="email" id="email" placeholder="E-mail">
             <input type="text" name="password" id="password" placeholder="Password">
@@ -28,7 +28,7 @@
         </form>
     {% endblock main %}
 
-
+    <hr>
 
     {% block footer %}
         {{ super() }}

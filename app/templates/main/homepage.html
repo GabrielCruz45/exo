@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block head %}
     {{ super() }}
@@ -7,24 +7,16 @@
 
 
 
-{% block body %}
-    {% block header %}
-        {{ super() }}
-        {% block pagetitle %} Homepage {% endblock pagetitle %}
-    {% endblock header%}
+
+{% block pagetitle %} Home {% endblock pagetitle %}
+
+
+{% block main %}
+    <h2 class="firstRow-center">Welcome to EXO!</h2>
+{% endblock main %}
 
 
 
-    {% block main %}
-        {{ super() }}
-    {% endblock main %}
+{% block footer %}
 
-
-
-    {% block footer %}
-        {{ super() }}
-
-    {% endblock footer %}
-
-
-{% endblock body %}
+{% endblock footer %}
