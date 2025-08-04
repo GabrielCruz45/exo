@@ -4,6 +4,7 @@
 
 {% block head %}
     {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='forms.css')}}">
     <title>Login</title>
 {% endblock head %}
 
@@ -17,7 +18,7 @@
         <p class="firstRow-left"></p>
         <p class="firstRow-center">Please log in</p>
         <p class="firstRow-right"></p>
-        <form class="secondRow-center grid-item" action="/login" method="POST">
+        <form class="secondRow-center grid-item login-form" action="/login" method="POST">
             <div class="username-and-password">
                 <input type="text" name="username" id="username" placeholder="Username">
                 <input type="text" name="password" id="password" placeholder="Password">
