@@ -3,8 +3,9 @@
 
 
 {% block head %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static', filename='forms.css')}}">
+    {{ super() }} {% assets "forms_styles" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
     <title>Login</title>
 {% endblock head %}
 
