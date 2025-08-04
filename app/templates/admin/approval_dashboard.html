@@ -8,35 +8,35 @@
 
 {% endblock head %}
 
+{% if current_user.role == 'admin' %}
+    {% block body %}
 
+        {% block header %}
+            {{ super() }}
+            {% block pagetitle %}
+                Approval Dashboard
+            {% endblock pagetitle%}
 
-{% block body %}
+        {% endblock header %}
 
-    {% block header %}
-        {{ super() }}
-        {% block pagetitle %}
-            Approval Dashboard
-        {% endblock pagetitle%}
+        {% block main %}
+            {{ super() }}
+            <table class="pending-approval">
+                {% for username, email in pending_approval.items() %} <!-- Check how to bring user_id to this template -->
+                    <tr>
+                        <td>{{ username }}</td>
+                        <td>{{ email }}</td>
+                        <td><a href="{{url_for('approve/{{ user_id }}')}}">Approve</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
 
-    {% endblock header %}
+        {% endblock main %}
 
-    {% block main %}
-        {{ super() }}
-        <table class="pending-approval">
-            {% for username, email in pending_approval.items() %} <!-- Check how to bring user_id to this template -->
-                <tr>
-                    <td>{{ username }}</td>
-                    <td>{{ email }}</td>
-                    <td><a href="{{url_for('approve/{{ user_id }}')}}">Approve</a></td>
-                </tr>
-            {% endfor %}
-        </table>
+        {% block footer %}
+            {{ super() }}
 
-    {% endblock main %}
+        {% endblock footer %}
 
-    {% block footer %}
-        {{ super() }}
-
-    {% endblock footer %}
-
-{% endblock body %}
+    {% endblock body %}
+{% endif %}

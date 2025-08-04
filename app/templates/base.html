@@ -12,48 +12,65 @@
 </head>
 
 <body>
-    {% block body %} 
-        {% block header %}
-            <header>
-                <div class="flashes">
-                    <!-- get flash messages with categories -->
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                            <ul class=flashes>
-                            {% for category, message in messages %}
-                            <li class="{{ category }}">{{ message }}</li>
-                            {% endfor %}
-                            </ul>
-                        {% endif %}
-                    {% endwith %}
-                </div>
+    <header>
+        <!-- get flash messages with categories -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        <div class="flashes">
+                {% if messages %}
+                    <ul class=flashes>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endwith %}
 
-                <div class="pagetitle"><h1>{% block pagetitle %} {% endblock pagetitle %}</h1></div>
+        <div class="page-title"><h1>{% block pagetitle %} {% endblock pagetitle %}</h1></div>
 
-                <nav>
-                    <li>
-                        <ul><a href="/">Home</a></ul>
-                        <ul><a href="{{ url_for(main.dashboard) }}">Dashboard</a></ul>
-                        {# if admin <ul><a href="">Approval</a></ul> #}
-                    </li>
-                </nav>
-            </header>
-        {% endblock header %}
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.homepage')}}">Home</a></li>
 
+
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.dashboard') }}">Dashboard</a></li>
+                {% endif %}
+
+
+                {% if current_user.is_admin %}
+                <li><a href="{{ url_for('admin.approval_dashboard') }}">Approval</a></li>
+                {% endif %}
+
+
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <main>
         {% block main %}
-            <main>
-                <div class="chat"></div>
-            </main>
+
         {% endblock main %}
+    </main>
 
 
+
+
+    <footer>
         {% block footer %}
-        <footer></footer>
+
         {% endblock footer %}
-    {% endblock body %}
-
-    
-
+    </footer>
+        
     {% block script %} {% endblock script %}
 </body>
 
