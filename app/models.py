@@ -15,7 +15,7 @@ class User(UserMixin, db.Model):
     email: Mapped[str] = mapped_column(unique=True)
     password_hash: Mapped[str]
     
-    role: Mapped[RoleEnum] = mapped_column(Enum(RoleEnum, native_enum=False)) 
+    role: Mapped[RoleEnum] = mapped_column(Enum(RoleEnum, native_enum=False))
     # This tells SQLAlchemy not to use the database's specific ENUM type 
     # (which can be buggy or unsupported on some backends like SQLite) and 
     # instead create a standard VARCHAR column with a CHECK constraint. 

@@ -4,36 +4,43 @@
 
 {% block head %}
     {{ super() }}
+    {% assets "forms_styles"%}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
     <title>Register</title>
 {% endblock head %}
 
 
 
-{% block body %}
-    {% block header %}
-        {{ super() }}
-        {% block pagetitle %} Register {% endblock pagetitle %}
-        {% endblock header%}
-        
-        <hr>
-        
+{% block header %}
+    {{ super() }}
 
-    {% block main %}
-        <form action="/register" method="POST" class="register-form">
+{% block pagetitle %}Register{% endblock pagetitle %}
+
+{% endblock header%}
+    
+    <hr>
+    
+
+{% block main %}
+    <form action="/register" method="POST" class="register-form secondRow-center">
+        <div class="registerForm-first-row grid-item">
             <input type="text" name="username" id="username" placeholder="Username">
             <input type="text" name="email" id="email" placeholder="E-mail">
-            <input type="text" name="password" id="password" placeholder="Password">
-            <input type="text" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
-            <input type="submit" value="submit">
-        </form>
-    {% endblock main %}
+        </div>
+        <div class="registerForm-second-row grid-item">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="repeat_password" id="repeat_password" placeholder="Repeat Password">
+        </div>
+        <div class="registerForm-third-row grid-item">
+            <input type="submit" value="Submit" class="register-submit">
+        </div>
+    </form>
+{% endblock main %}
 
     <hr>
 
-    {% block footer %}
-        {{ super() }}
+{% block footer %}
+    {{ super() }}
 
-    {% endblock footer %}
-
-
-{% endblock body %}
+{% endblock footer %}

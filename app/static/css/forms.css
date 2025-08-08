@@ -1,76 +1,102 @@
-.login-form {
+.login-form, .register-form {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: repeat(3, 1fr);
     justify-content: center;
+
+    /* border: 3px solid whitesmoke; */
 }
 
-.login-form input {
+.login-form input, .register-form input {
     height: 2rem;
     width: 14rem;
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
+    color: #F0F7EE;
+    background-color: #141517;
 }
 
-.username-and-password input {
+.username-and-password input, .register-form input:not([type="submit"]) {
     padding-left: 1rem;
 }
 
-.login-form input:focus {
+.login-form input:focus, .register-form input:focus {
     outline: none;
 }
 
 
-.username-and-password {
+.username-and-password, .registerForm-first-row {
     grid-area: 1;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
+
+    /* border: 3px solid whitesmoke; */
     
 }
 
-.username-and-password #username {
+.username-and-password #username, .registerForm-first-row #username {
     grid-area: 1 / 1;
 }
 
-.username-and-password #password {
+.username-and-password #password, .registerForm-first-row #E-mail {
     grid-area: 1 / 2;
 }
 
 
-.remember {
+.registerForm-second-row {
     grid-area: 2;
-
+    
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
 }
 
+.remember {
+    /* border: 3px solid whitesmoke; */
+    grid-area: 2 / 1;
+    
+    display: flex; 
+    justify-content: center;  
+}
 
-#remember_me-label {
+
+.registerForm-second-row #password {
     grid-area: 1 / 1;
     justify-self: right;
-    /* padding-right: 1rem; */
+}
+
+
+#remember_me-label {
+    justify-self: center;
+    padding-right: 1rem;
 }
 
 #remember_me-checkbox {
-    grid-area: 1 / 2;
+    justify-self: right;
     
     height: 1rem;
     width: 1rem;
+}
+
+
+.registerForm-second-row #repeat_password {
+    grid-area: 1 / 2;
 }
 
 #remember_me-checkbox:hover{
     cursor: pointer;
 }
 
-.login-submit {
+.login-submit, .registerForm-third-row {
     grid-area: 3;
 
     justify-self: center;
     padding: 1rem;
+
+    /* border: 3px solid whitesmoke; */
 }
 
-.login-submit input {
+.login-submit input, .register-submit {
     cursor: pointer;
 }

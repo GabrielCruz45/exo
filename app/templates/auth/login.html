@@ -4,7 +4,7 @@
 
 {% block head %}
     {{ super() }} 
-    
+
     {% assets "forms_styles" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {% endassets %}
@@ -15,7 +15,7 @@
 
 
 {% block body %}
-    {% block pagetitle %} Login {% endblock pagetitle %}
+    {% block pagetitle %}Login{% endblock pagetitle %}
 
 
     {% block main %}
@@ -25,14 +25,14 @@
         <form class="secondRow-center grid-item login-form" action="/login" method="POST">
             <div class="username-and-password">
                 <input type="text" name="username" id="username" placeholder="Username">
-                <input type="text" name="password" id="password" placeholder="Password">
+                <input type="password" name="password" id="password" placeholder="Password">
             </div>
             <div class="remember grid-item">
                 <label for="remember_me-checkbox" id="remember_me-label">Remember Me</label>
                 <input type="checkbox" name="remember_me" id="remember_me-checkbox">
             </div>
             <div class="login-submit grid-item">
-                <input type="submit" value="submit">
+                <input type="submit" value="Submit">
             </div>
         </form>
     {% endblock main %}
