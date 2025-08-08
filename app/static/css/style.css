@@ -86,6 +86,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: (2, auto);
     justify-items: center;
+    align-items: center;
     gap: 0;
     padding: 0;
     padding-top: 3rem;

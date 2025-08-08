@@ -44,9 +44,13 @@ August 4, 2025
     Took a 1 week + 2 day break, did code some stuff here and there but no 'power' sessions. With last push, 
     edited base.html thoroughly, added a new .css file for forms, particularly thinking on separating 
     the login form from the register form. The nav bar got updated, now will show options 
-    if user logged in or not and if admin. Color are cooler, will be editing them later on, but for now they look cool.
-    User cannot register yet, and I need to create the admin account. Those are the next steps after I finish with forms.css. 
-    Then after that will move on to TASK_FOUR.pdf I'm having fun with the project, the self-imposed deadline approaches
-     (September 1st, 2025). Let's see if life lets me finish it on or before the deadline! 
-     Work has been intense lately, my general mood has been turning a little negative. 
-     Also, quitting caffeine, did help a lot last time. Let's see how the project goes!
+    if user logged in or not and if admin. Colors are cooler, will be editing them later on, but for now they look nice.
+    User cannot register yet, and I need to create the admin account. Those are the next steps after I finish with forms.css.
+    After, I will need to edit the styles on the approval_dashboard.html template. 
+    Then after that will move on to TASK_FOUR.pdf 
+    
+    I'm having fun with the project, the self-imposed deadline approaches
+    (September 1st, 2025). Let's see if life lets me finish it on or before the deadline! 
+    Work has been intense lately, my general mood has been turning a little negative. 
+    Also, quitting caffeine does have to do with the mood change, but did help a lot last time. 
+    Let's see how the project goes!
