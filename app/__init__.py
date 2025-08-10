@@ -22,6 +22,10 @@ def create_app():
         return User.query.get(int(user_id))
 
 
+    # register the create admin command
+    from . import commands
+    app.cli.add_command(commands.create_admin)
+
 
     # register blueprint
     with app.app_context():

@@ -93,8 +93,9 @@ def login():
 
 
 
+
 @auth_bp.route('/logout')
 def logout():
     logout_user()
-    session.clear() # mega ultra super duper defense
+    session.clear() # mega-ultra-super-duper defense
     return redirect(url_for('main.homepage'))

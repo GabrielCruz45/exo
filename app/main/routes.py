@@ -1,7 +1,7 @@
 # this file is still in 'test' mode
 
 # Routes for dashboard, analysis sessions
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, request
 from flask_login import login_required, current_user
 from jinja2.exceptions import TemplateNotFound
 
@@ -22,7 +22,16 @@ def homepage():
         abort(500)
 
 
-@main_bp.route('/dashboard')
+@main_bp.route('/dashboard', methods=['GET', 'POST'])
 @login_required # this works!!
 def dashboard():
-    return f"<h1>Welcome to your dashboard, {current_user.username}!</h1>"
+    if request.method == 'POST':
+        try:
+            print("User is logged in... hmmm")
+            return render_template('main/dashboard.html')
+        
+        except TemplateNotFound:
+            abort(500)
+
+    else:
+        return render_template('main/dashboard.html')
