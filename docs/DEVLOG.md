@@ -54,3 +54,18 @@ August 4, 2025
     Work has been intense lately, my general mood has been turning a little negative. 
     Also, quitting caffeine does have to do with the mood change, but did help a lot last time. 
     Let's see how the project goes!
+
+August 10, 2025
+
+    I've been thinking lately how much time I've spent, and how much I've learned byt just setting up the application,
+    and creating the authentication routes/templates/etc. Definitely feels like a good step forward from CS50 week 9's 
+    Flask project. Love this line on admin/routes.py! 
+    ```
+    unapproved_users = {username : email for username, email in results}
+    ```
+    You can write a for loop in the same line, *inside* the initialization of a dictionary, who knew?!
+
+    Admin can currently log in and log off. Can also access the admin_dashboard.html template. 
+    I need to check next the register route and make it work.
+
+    So far I'm still having fun. Just noticed, 21 days until deadline. Viene vieneeee 👾
