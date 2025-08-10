@@ -1,6 +1,6 @@
 # Contains the Application Factory (create_app)
 from flask import Flask
-from app.models import User
+from app.models import User, RoleEnum
 
 from app.extensions import db, migrate, socketio, login_manager, assets
 
@@ -21,6 +21,10 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
 
+    # defines a context processor; automatically makes "RoleEnum" available globally in Jinja2 templates
+    @app.context_processor
+    def inject_roles():
+        return dict(RoleEnum=RoleEnum)
 
     # register the create admin command
     from . import commands

@@ -40,8 +40,8 @@
                 {% endif %}
 
 
-                {% if current_user.is_admin %}
-                <li><a href="{{ url_for('admin.approval_dashboard') }}">Approval</a></li>
+                {% if current_user.role == RoleEnum.admin %}
+                <li><a href="{{ url_for('admin.admin_dashboard') }}">Approval</a></li>
                 {% endif %}
 
 
