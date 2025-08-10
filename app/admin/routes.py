@@ -2,6 +2,7 @@
 from flask import Blueprint, render_template, abort, flash, redirect, url_for, abort
 from flask_login import login_required
 from jinja2 import TemplateNotFound
+from sqlalchemy import select
 
 from app.decorators import admin_required
 from app.models import User
@@ -21,8 +22,13 @@ admin_bp = Blueprint(
 @admin_required
 def admin_dashboard():
     try:
-        # Inside this route, query the database for all users where is_approved is False. Pass this list of users to a new template.
-        unapproved_users = db.session.execute(db.select(User).where(User.is_approved == False)).scalars().all()
+        # Inside this route, query the database for all users where is_approved is False.
+        query = select(User.username, User.email).where(User.is_approved == False) # construct query to select only username and email
+        results = db.session.execute(query).all() # list of row objects
+        
+        # Use list of unapproved users to create username, email dictionary
+        unapproved_users = {username : email for username, email in results}
+
         return render_template('admin/admin_dashboard.html', unapproved_users=unapproved_users)
     
     except TemplateNotFound:

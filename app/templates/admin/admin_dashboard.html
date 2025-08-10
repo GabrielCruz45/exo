@@ -8,7 +8,7 @@
 
 {% endblock head %}
 
-{% if current_user.role == 'admin' %}
+{% if current_user.role == RoleEnum.admin %}
     {% block header %}
         {{ super() }}
 
@@ -19,7 +19,7 @@
     {% block main %}
         {{ super() }}
         <table class="pending-approval">
-            {% for username, email in pending_approval.items() %} <!-- Check how to bring user_id to this template -->
+            {% for username, email in unapproved_users.items() %} <!-- Check how to bring user_id to this template -->
                 <tr>
                     <td>{{ username }}</td>
                     <td>{{ email }}</td>
