@@ -3,6 +3,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from app.models import User, RoleEnum
 from app.extensions import db
 
+
 @click.command("create-admin")
 @click.argument("username")
 def create_admin(username):

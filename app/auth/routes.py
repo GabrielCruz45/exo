@@ -72,6 +72,9 @@ def login():
             # check if user is approved by admin
             if user.is_approved:
                 login_user(user)
+                print(f"user role: {user.role}")
+                # if user.RoleEnum == RoleEnum.admin:
+                    # return redirect
                 return redirect(url_for('main.dashboard'))
             
             # error because approval

@@ -26,6 +26,7 @@ login_manager.login_view = 'auth.login' # if user tries to access protected page
 
 assets = Environment()
 
+
 main_styles = Bundle(
   'css/style.css',
   filters='cssmin',
