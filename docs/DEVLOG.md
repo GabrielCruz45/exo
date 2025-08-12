@@ -59,13 +59,28 @@ August 10, 2025
 
     I've been thinking lately how much time I've spent, and how much I've learned byt just setting up the application,
     and creating the authentication routes/templates/etc. Definitely feels like a good step forward from CS50 week 9's 
-    Flask project. Love this line on admin/routes.py! 
-    ```
-    unapproved_users = {username : email for username, email in results}
-    ```
+    Flask project. 
+    
+    Love this line on admin/routes.py! 
+        ```
+        unapproved_users = {username : email for username, email in results}
+        ```
     You can write a for loop in the same line, *inside* the initialization of a dictionary, who knew?!
 
     Admin can currently log in and log off. Can also access the admin_dashboard.html template. 
     I need to check next the register route and make it work.
 
     So far I'm still having fun. Just noticed, 21 days until deadline. Viene vieneeee 👾
+
+    Update on caffeine quit -> It's going well, no more side effects. Bought a swiss-water method decaf one, 
+    tastes very bad and was very expensive. Gabriel 1, Decaf company 1.
+
+August 12, 2025
+
+        Managed to make the admin_dashboard.html and admin/routes.py work together. 
+        Admin will successfully see all the unapproved users in the user database and have the option to approve.
+        Also, users can now register. Would need to change logic and create a "pending_approval.html" template for the user 
+        before getting approved by admin. Big step tho! Success flash messages are still appearing red, 
+        I thought I properly changed that with the update to style.css. In a later session I will check this.
+
+        Currently tired, worked my final shift for this 'week', will go to sleep soon. I have a rehearsal tomorrow, will try to get at least 6hrs of sleep. Let's go!

@@ -55,6 +55,10 @@ nav ul li {
     display: inline; 
 }
 
+.success {
+    color:rgb(153, 247, 153);
+}
+
 .warning {
     color: orange;
 }
