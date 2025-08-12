@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
-
-
-{% block head %}
-    {{ super() }}
-    <title>Approval Dashboard</title>
-
-{% endblock head %}
-
 {% if current_user.role == RoleEnum.admin %}
+
+
+    {% block head %}
+        {{ super() }}
+        <title>Approval Dashboard</title>
+
+    {% endblock head %}
+
+
     {% block header %}
         {{ super() }}
 
@@ -16,22 +17,29 @@
 
     {% endblock header %}
 
+
     {% block main %}
         {{ super() }}
-        <table class="pending-approval">
-            {% for username, email in unapproved_users.items() %} <!-- Check how to bring user_id to this template -->
-                <tr>
-                    <td>{{ username }}</td>
-                    <td>{{ email }}</td>
-                    <td><a href="{{url_for('approve/{{ user_id }}')}}">Approve</a></td>
-                </tr>
-            {% endfor %}
-        </table>
+
+        {% for username, (email, id) in unapproved_users.items() %} <!-- Check how to bring user_id to this template -->
+            <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval">
+                <table class="pending-approval">
+                    <tr>
+                        <td>{{ username }}</td>
+                        <td>{{ email }}</td>
+                        <td><button type="submit">Approve</button></td>
+                    </tr>
+                </table>                
+            </form>
+        {% endfor %}
 
     {% endblock main %}
+
 
     {% block footer %}
         {{ super() }}
 
     {% endblock footer %}
+
+
 {% endif %}

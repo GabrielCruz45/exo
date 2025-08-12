@@ -9,6 +9,7 @@ from app.models import User
 from app.extensions import db
 
 
+
 admin_bp = Blueprint(
     'admin',
     __name__,
@@ -17,22 +18,24 @@ admin_bp = Blueprint(
 )
 
 
+
 @admin_bp.route('/dashboard')
 @login_required
 @admin_required
 def admin_dashboard():
     try:
         # Inside this route, query the database for all users where is_approved is False.
-        query = select(User.username, User.email).where(User.is_approved == False) # construct query to select only username and email
+        query = select(User.username, User.email, User.id).where(User.is_approved == False) # construct query to select only username and email
         results = db.session.execute(query).all() # list of row objects
         
         # Use list of unapproved users to create username, email dictionary
-        unapproved_users = {username : email for username, email in results}
+        unapproved_users = {username : (email, id) for username, email, id in results}
 
         return render_template('admin/admin_dashboard.html', unapproved_users=unapproved_users)
     
     except TemplateNotFound:
         return abort(500)
+
 
 
 @admin_bp.route('/approve/<int:user_id>', methods=['POST'])
