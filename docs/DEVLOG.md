@@ -77,10 +77,16 @@ August 10, 2025
 
 August 12, 2025
 
-        Managed to make the admin_dashboard.html and admin/routes.py work together. 
-        Admin will successfully see all the unapproved users in the user database and have the option to approve.
-        Also, users can now register. Would need to change logic and create a "pending_approval.html" template for the user 
-        before getting approved by admin. Big step tho! Success flash messages are still appearing red, 
-        I thought I properly changed that with the update to style.css. In a later session I will check this.
+    Managed to make the admin_dashboard.html and admin/routes.py work together. 
+    Admin will successfully see all the unapproved users in the user database and have the option to approve.
+    Also, users can now register. Would need to change logic and create a "pending_approval.html" template for the user 
+    before getting approved by admin. Big step tho! Success flash messages are still appearing red, 
+    I thought I properly changed that with the update to style.css. In a later session I will check this.
 
-        Currently tired, worked my final shift for this 'week', will go to sleep soon. I have a rehearsal tomorrow, will try to get at least 6hrs of sleep. Let's go!
+    Currently tired, worked my final shift for this 'week', will go to sleep soon. I have a rehearsal tomorrow, will try to get at least 6hrs of sleep. Let's go!
+
+August 13, 2025
+    Added stylings to admin approval, still haven't debugged the flashes color. Probably won't do next
+    as I'm eager to continue to the data processing part. Will keep mental and digital note of
+    bug for later. Created .md file for this, this may be a good thing for pesky annoying bugs
+    that don't require immediate attention. Let's see how it flows with the project.
