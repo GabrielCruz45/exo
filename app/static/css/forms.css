@@ -100,3 +100,24 @@
 .login-submit input, .register-submit {
     cursor: pointer;
 }
+
+
+
+td {
+    padding: 1rem;
+}
+
+.table-row-one {
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.admin-approval-btn {
+    cursor: pointer;
+    border-radius: 2px;
+    height: 1.8rem;
+    width: 5.3rem;
+
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}

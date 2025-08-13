@@ -5,7 +5,10 @@
 
     {% block head %}
         {{ super() }}
-        {% block title %}Approval Dashboard{% endblock title%}
+
+        {% assets "forms_styles"%}
+            <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
 
     {% endblock head %}
 
@@ -22,12 +25,17 @@
         {{ super() }}
 
         {% for username, (email, id) in unapproved_users.items() %} <!-- Check how to bring user_id to this template -->
-            <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval">
+            <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval firstRow-center">
                 <table class="pending-approval">
+                    <tr class="table-row-one">
+                        <td>Username</td>
+                        <td>E-mail</td>
+                    </tr>
+                    <hr>
                     <tr>
                         <td>{{ username }}</td>
                         <td>{{ email }}</td>
-                        <td><button type="submit">Approve</button></td>
+                        <td><button type="submit" class="admin-approval-btn">Approve</button></td>
                     </tr>
                 </table>                
             </form>
