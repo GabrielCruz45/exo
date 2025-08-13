@@ -55,7 +55,7 @@ nav ul li {
     display: inline; 
 }
 
-.success {
+ul .success {
     color:rgb(153, 247, 153);
 }
 

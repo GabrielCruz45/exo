@@ -4,10 +4,12 @@
 
 {% block head %}
     {{ super() }}
+
     {% assets "forms_styles"%}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {% endassets %}
-    <title>Register</title>
+    
+    {% block title %}Register{% endblock title%}
 {% endblock head %}
 
 
