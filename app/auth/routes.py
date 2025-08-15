@@ -76,7 +76,6 @@ def login():
             # login user is approved and password matches
             if user and user.check_password(form.password.data):
                 login_user(user)
-                print(f"user role: {user.role}")
 
                 return redirect(url_for('main.dashboard'))
         
