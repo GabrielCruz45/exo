@@ -41,12 +41,11 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         
-        # login user, send message
-        login_user(new_user)
-        flash("Registration successful! Redirecting to dashboard.", 'success')
+        # send message
+        flash("Registration successful! Wait until admin approval for login ability.", 'success')
 
         # redirect new, logged in user to the login page
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('auth.login'))
 
     # else if 'GET' -> if form.validate_on_submit(): handles this too
     try:
@@ -65,27 +64,27 @@ def login():
     if form.validate_on_submit():
         # find the user by their username
         user = User.query.filter_by(username=form.username.data).first()
-        
-        # first check if -> user exists and password matches
-        if user and user.check_password(form.password.data):
 
-            # check if user is approved by admin
-            if user.is_approved:
-                login_user(user)
-                print(f"user role: {user.role}")
-                # if user.RoleEnum == RoleEnum.admin:
-                    # return redirect
-                return redirect(url_for('main.dashboard'))
-            
-            # error because approval
-            else:
-                flash('Still pending approval', 'warning')
-                return redirect(url_for('auth.login'))
-        
-        # error because username does not exist
-        else:
+        # if username doesn't exist
+        if not user:
             flash('Wrong username and/or password.', 'danger')
             return redirect(url_for('auth.login'))
+        
+        # check if user is approved by admin
+        if user.is_approved == True:
+
+            # login user is approved and password matches
+            if user and user.check_password(form.password.data):
+                login_user(user)
+                print(f"user role: {user.role}")
+
+                return redirect(url_for('main.dashboard'))
+        
+        # error because no approval
+        else:
+            flash('Still pending approval', 'warning')
+            return redirect(url_for('auth.login'))
+    
 
     # else if 'GET'
     try:
@@ -93,8 +92,6 @@ def login():
     
     except TemplateNotFound:
         return abort(500)
-
-
 
 
 @auth_bp.route('/logout')

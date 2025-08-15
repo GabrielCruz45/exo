@@ -29,23 +29,15 @@
         {{ form.hidden_tag() }} <div class="registerForm-first-row grid-item">
                 {{ form.username(id='username', placeholder='Username')}}
                 {{ form.email(id='email', placeholder='E-mail')}}
-
-            <!-- <input type="text" name="username" id="username" placeholder="Username">
-            <input type="text" name="email" id="email" placeholder="E-mail"> -->
         </div>
 
         <div class="registerForm-second-row grid-item">
             {{ form.password(id='password', placeholder='Password')}}
             {{ form.repeat_password(id='repeat_password', placeholder='Repeat Password')}}
-
-            <!-- <input type="password" name="password" id="password" placeholder="Password">
-            <input type="password" name="repeat_password" id="repeat_password" placeholder="Repeat Password"> -->
         </div>
 
         <div class="registerForm-third-row grid-item">
             {{ form.submit_button(value='Submit') }}
-
-            <!-- <input type="submit" value="Submit" class="register-submit"> -->
         </div>
     </form>
 {% endblock main %}

@@ -15,7 +15,7 @@
 
 
 
-{% block body %}
+
     {% block pagetitle %}Login{% endblock pagetitle %}
 
 
@@ -27,23 +27,14 @@
             {{ form.hidden_tag() }} <div class="username-and-password">
                 {{ form.username(id='username', placeholder='Username')}}
                 {{ form.password(id='password', placeholder='Password')}}
-
-                    <!-- Instead of
-                    <input type="text" name="username" id="username" placeholder="Username">
-                    <input type="password" name="password" id="password" placeholder="Password"> -->
             </div>
 
             <div class="remember grid-item">
                 {{ form.remember_me.label(id='remembe_me-label', for='remember_me-checkbox') }}
                 {{ form.remember_me(id='remember_me-checkbox')}}
-
-                <!-- <label for="remember_me-checkbox" id="remember_me-label">Remember Me</label>
-                <input type="checkbox" name="remember_me" id="remember_me-checkbox"> -->
             </div>
             <div class="login-submit grid-item">
                 {{ form.submit_button(value='Submit') }}
-
-                <!-- <input type="submit" value="Submit"> -->
             </div>
         </form>
     {% endblock main %}
@@ -54,7 +45,3 @@
         {{ super() }}
 
     {% endblock footer %}
-
-
-
-{% endblock body %}
