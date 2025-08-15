@@ -24,22 +24,25 @@
     {% block main %}
         {{ super() }}
 
-        {% for username, (email, id) in unapproved_users.items() %} <!-- Check how to bring user_id to this template -->
-            <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval firstRow-center">
-                <table class="pending-approval">
-                    <tr class="table-row-one">
-                        <td>Username</td>
-                        <td>E-mail</td>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <td>{{ username }}</td>
-                        <td>{{ email }}</td>
-                        <td><button type="submit" class="admin-approval-btn">Approve</button></td>
-                    </tr>
-                </table>                
-            </form>
-        {% endfor %}
+        <table class="pending-approval">
+            <thead class="table-row-one">
+                <td>Username</td>
+                <td>E-mail</td>
+            </thead>
+            <tbody>
+                {% for username, (email, id) in unapproved_users.items() %} <!-- Check how to bring user_id to this template -->
+                <tr>
+                    <td>{{ username }}</td>
+                    <td>{{ email }}</td>
+                    <td>
+                        <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval firstRow-center">
+                            <button type="submit" class="admin-approval-btn">Approve</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>                
 
     {% endblock main %}
 

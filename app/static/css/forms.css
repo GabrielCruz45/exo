@@ -107,6 +107,10 @@ td {
     padding: 1.3rem;
 }
 
+.pending-approval {
+    grid-area: 1/2;
+}
+
 .table-row-one {
     font-weight: bolder;
     font-size: larger;
