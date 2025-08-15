@@ -103,8 +103,13 @@
 
 
 
+thead td {
+    font-size: x-large;
+}
+
 td {
     padding: 1.3rem;
+    font-size: large;
 }
 
 .pending-approval {
@@ -119,8 +124,8 @@ td {
 .admin-approval-btn {
     cursor: pointer;
     border-radius: 2px;
-    height: 1.8rem;
-    width: 5.3rem;
+    height: 2.2rem;
+    width: 6rem;
 
     font-size: large;
     font-family: 'Times New Roman', Times, serif;

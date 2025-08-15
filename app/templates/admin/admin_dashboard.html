@@ -35,8 +35,13 @@
                     <td>{{ username }}</td>
                     <td>{{ email }}</td>
                     <td>
-                        <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval firstRow-center">
+                        <form action="{{url_for('admin.approve_user', user_id=id)}}" method="POST" class="admin-approval">
                             <button type="submit" class="admin-approval-btn">Approve</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{url_for('admin.unapprove_user', user_id=id)}}" method="POST" class="admin-approval">
+                            <button type="submit" class="admin-approval-btn">Unapprove</button>
                         </form>
                     </td>
                 </tr>

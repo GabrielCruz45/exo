@@ -50,12 +50,45 @@ def approve_user(user_id):
     if not user:
         return abort(404)
     
-    # change approval status
-    user.is_approved = True
+    try:
+        # change approval status
+        user.is_approved = True
 
-    # commit change
-    db.session.commit()
+        # commit change
+        db.session.commit()
 
 
-    flash('User successfully approved!', 'success')
-    return redirect(url_for('admin.admin_dashboard'))
+        flash('User successfully approved!', 'success')
+        return redirect(url_for('admin.admin_dashboard'))
+
+    except Exception as e:
+            db.session.rollback()
+            print(f"Error deleting user: {e}")
+
+
+
+@admin_bp.route('/unapprove/<int:user_id>', methods=['POST'])
+@login_required
+@admin_required
+def unapprove_user(user_id):
+
+    # get user_id db info
+    user = db.session.get(User, user_id)
+    
+    # error check
+    if not user:
+        return abort(404)
+    
+    try:
+        db.session.delete(user)
+
+        # commit change
+        db.session.commit()
+
+
+        flash('User successfully unapproved!', 'success')
+        return redirect(url_for('admin.admin_dashboard'))
+
+    except Exception as e:
+            db.session.rollback()
+            print(f"Error deleting user: {e}")
