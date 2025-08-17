@@ -2,6 +2,7 @@
 
 {% block head %}
     {{ super() }}
+
     <!-- {% block title %}Dashboard{% endblock title%} -->
 {% endblock head %}
 
@@ -12,7 +13,29 @@
 
 
 {% block main %}
-    <h2 class="firstRow-center">This is the dashboard for {{ username }}, you've successfully logged in!</h2>
+    <table id="exoplanetTable" class="dashboard-table secondRow-center">
+        <thead>
+            <tr>
+                <td>Planet Name</td>
+                <td>Host Star Name</td>
+                <td>Discovery Method</td>
+                <td>Planet Radius</td>
+                <td>Planet Mass (Earth)</td>
+                <td>Planet Equilibrium Temperature</td>
+                <td>Orbital Period</td>
+                <td>Host Star Temperature (K)</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in exoplanet_data %}
+                <tr>
+                    {% for value in row.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor%}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock main %}
 
 

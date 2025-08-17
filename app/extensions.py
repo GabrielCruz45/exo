@@ -29,15 +29,25 @@ assets = Environment()
 
 main_styles = Bundle(
   'css/style.css',
+  'https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css',
   filters='cssmin',
   output='gen/packed.css'
 )
 
 forms_styles = Bundle(
-    'css/forms.css',
-    filters='cssmin',
-    output='gen/forms.css'
+  'css/forms.css',
+  filters='cssmin',
+  output='gen/forms.css'
+)
+
+main_js = Bundle(
+  'https://code.jquery.com/jquery-3.7.1.min.js',
+  'https://cdn.datatables.net/2.0.8/js/dataTables.min.js',
+  'js/dashboard.js',
+  filters='jsmin',
+  output='gen/packed.js'
 )
 
 assets.register('main_styles', main_styles)
 assets.register('forms_styles', forms_styles)
+assets.register('main_js', main_js)

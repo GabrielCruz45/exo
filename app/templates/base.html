@@ -75,7 +75,9 @@
         {% endblock footer %}
     </footer>
         
-    {% block script %} {% endblock script %}
+    {% assets "main_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}" defer></script>
+    {% endassets %}
 </body>
 
 </html>

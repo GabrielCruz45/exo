@@ -127,3 +127,21 @@ main .secondRow-center {
 main .secondRow-right {
     grid-area: 2 / 3;
 }
+
+
+
+
+/* Table */
+
+.dashboard-table {
+    padding-top: 3rem;
+}
+
+.dashboard-table thead {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.dashboard-table tr td {
+    padding: 0.9rem;
+}

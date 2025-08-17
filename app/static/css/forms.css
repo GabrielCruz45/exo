@@ -3,8 +3,6 @@
     grid-template-columns: auto;
     grid-template-rows: repeat(3, 1fr);
     justify-content: center;
-
-    /* border: 3px solid whitesmoke; */
 }
 
 .login-form input, .register-form input {
@@ -29,10 +27,7 @@
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-
-    /* border: 3px solid whitesmoke; */
-    
+    grid-template-rows: auto; 
 }
 
 .username-and-password #username, .registerForm-first-row #username {
@@ -53,7 +48,6 @@
 }
 
 .remember {
-    /* border: 3px solid whitesmoke; */
     grid-area: 2 / 1;
     
     display: flex; 
@@ -93,8 +87,6 @@
 
     justify-self: center;
     padding: 1rem;
-
-    /* border: 3px solid whitesmoke; */
 }
 
 .login-submit input, .register-submit {
@@ -121,12 +113,20 @@ td {
     font-size: larger;
 }
 
-.admin-approval-btn {
+.admin-approval-btn, .admin-unapproval-btn {
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 4px;
     height: 2.2rem;
     width: 6rem;
 
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
+}
+
+.admin-approval-btn:hover {
+    background-color: dodgerblue;
+}
+
+.admin-unapproval-btn:hover {
+    background-color: orangered;
 }
