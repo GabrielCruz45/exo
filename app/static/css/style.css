@@ -11,7 +11,7 @@ body {
     background-color: #020403;
     color: #F0F7EE;
 
-    height: 100vh;
+    min-height: 100vh;
 
     font-family: 'Times New Roman', Times, serif;
 }
@@ -130,6 +130,47 @@ main .secondRow-right {
 
 
 
+/* Datatables.net table */
+
+#exoplanetTable_wrapper {
+    grid-area: 1 / 2;
+}
+
+.dt-search {
+  margin-bottom: 1rem;
+}
+
+.dt-search input {
+  background-color: #141517;
+  color: #F0F7EE;
+  border: 1px solid #AFDEDC;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.dt-paging-button {
+  color: #F0F7EE !important; /* !important overrides default link color */
+  margin: 0 5px;
+}
+
+.dt-paging-button.current {
+  background-color: dodgerblue !important;
+  border-radius: 5px;
+  border: none;
+}
+
+.dt-paging-button:hover:not(.current) {
+  background-color: #2E3532 !important;
+  border-radius: 5px;
+}
+
+.dt-length select {
+  background-color: #141517;
+  color: #F0F7EE;
+  border: 1px solid #AFDEDC;
+  border-radius: 5px;
+  padding: 0.4rem;
+}
 
 /* Table */
 

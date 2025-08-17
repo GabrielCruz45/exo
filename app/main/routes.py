@@ -39,7 +39,7 @@ def dashboard():
         # for row in exoplanet_data[:10]:
         #     print(row)
 
-        return render_template('main/dashboard.html', username=current_user.username, exoplanet_data=exoplanet_data[:10])
+        return render_template('main/dashboard.html', username=current_user.username, exoplanet_data=exoplanet_data)
     
     except TemplateNotFound:
         abort(500)
