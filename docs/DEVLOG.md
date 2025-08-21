@@ -90,3 +90,17 @@ August 13, 2025
     as I'm eager to continue to the data processing part. Will keep mental and digital note of
     bug for later. Created .md file for this, this may be a good thing for pesky annoying bugs
     that don't require immediate attention. Let's see how it flows with the project.
+
+August 21, 2025
+    I've succesfully implemented the ESI calculation and it is passed to the dataFrame.
+    Which then is properly showed in the dashboard list. Users can now see and organize
+    the list according to ESI calculation.
+
+    I've done acouple things between today and August 13; haven't updated the DEVLOG as dilligent these days.
+    The table uses DataTables.net JavaScript library, worked like a charm from the start. Have done a couple of styling 
+    choices here and there. Will probably add Hubble's deep space photo as part of the homepage.html 
+    template and add related info regarding exoplanets, their search, etc.
+
+    Had coffee today, had about week and a half without having one. Couldn't sleep properly yesterday as the power went out for the entirety of my sleeping hours. Temperatures were high and the lack of wind wasn't helping. 
+    It caused disruption in my sleep schedule and still recuperating from that. 
+    Will go back to caffeine free for this week again.
