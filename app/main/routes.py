@@ -34,10 +34,8 @@ def dashboard():
         # os.path.join makes code more portable, prevents errors!
         file_path = os.path.join(current_app.root_path, '../', 'data', 'exo.csv')
 
+        # load exoplanet data and convert to dictionary
         exoplanet_data = (load_exoplanet_data(file_path)).to_dict(orient='records')
-        
-        # for row in exoplanet_data[:10]:
-        #     print(row)
 
         return render_template('main/dashboard.html', username=current_user.username, exoplanet_data=exoplanet_data)
     

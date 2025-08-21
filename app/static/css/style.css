@@ -25,6 +25,7 @@ header {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
     justify-items: center;
+    box-shadow: 0.1rem 0rem 1rem dodgerblue;
 }
 
 .flashes {
